@@ -10,6 +10,7 @@ import imgMyCard1 from "figma:asset/65f4750f55746b9276e5aadc44796a40910ff6d7.png
 import imgMyCard2 from "figma:asset/5fa5c857b528fdc9188c8e7ecc761ccda12aa0e7.png";
 import imgSection from "figma:asset/276ae741e3542bf9c39b3ef8edc48efdaac04a30.png";
 import React from "react";
+import "../styles/landing-768.css"
 
 // --- Shared Components ---
 
@@ -112,7 +113,7 @@ function NavigationBar() {
 
   return (
     <div className="w-full border-b border-transparent bg-[rgba(255,255,255,0.96)] backdrop-blur-[4px]">
-      <div className="w-full max-w-[1280px] mx-auto px-[16px] py-[16px] flex items-center justify-between">
+      <div className="header-wrap w-full max-w-[1280px] mx-auto px-[16px] py-[16px] flex items-center justify-between">
         {/* Logo */}
         <div className="h-[32px] relative shrink-0 w-[146.862px]">
           <svg
@@ -195,16 +196,16 @@ function HeroSection() {
 
   return (
     <div
-      className="md:h-[960px] h-[1024px] overflow-visible relative shrink-0 w-full"
+      className="hero-section h-[960px] overflow-visible relative shrink-0 w-full"
       style={{
         backgroundImage:
           "linear-gradient(0deg, rgb(255, 226, 226) 0%, rgb(255, 255, 255) 100%)",
       }}
     >
       {/* Content Container */}
-      <div className="relative size-full max-w-[1280px] mx-auto md:px-[16px] px-[32px]">
+      <div className="relative overflow-hidden size-full max-w-[1280px] mx-auto md:px-[16px] px-[32px]">
         {/* Background Image */}
-        <div className="absolute bottom-[24px] h-[846px] right-[-267px] w-[1269px] pointer-events-none">
+        <div className="here-img-box absolute bottom-[24px] h-[846px] right-[-267px] w-[1269px] pointer-events-none">
           <img
             alt=""
             className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
@@ -212,25 +213,25 @@ function HeroSection() {
           />
         </div>
 
-        <div className="absolute content-stretch flex flex-col gap-[60px] items-start top-[140px]">
+        <div className="hero-title-box absolute content-stretch flex flex-col gap-[60px] items-start top-[140px]">
           {/* Text Block */}
           <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
             <div className="content-stretch flex items-center relative shrink-0">
-              <p className="font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[#1c1e22] text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
+              <p className="hero-title font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[#1c1e22] text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
                 당신의 일상이
               </p>
             </div>
             <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-              <div className="bg-[#1c1e22] h-[110px] overflow-clip relative rounded-[999px] shrink-0 w-[193px]">
+              <div className="hero-rolling bg-[#1c1e22] h-[110px] overflow-clip relative rounded-[999px] shrink-0 w-[193px]">
                 <RollingCurrencyImages />
                 <div className="absolute inset-0 pointer-events-none shadow-[4px_4px_14px_0px_inset_rgba(255,255,255,0.2),0px_16px_28px_0px_inset_rgba(0,0,0,0.04)]" />
               </div>
-              <p className="font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[#1c1e22] text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
+              <p className="hero-title font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[#1c1e22] text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
                 수익이 됩니다.
               </p>
             </div>
             <div className="content-stretch flex items-center relative shrink-0">
-              <p className="font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
+              <p className="hero-title font-['Pretendard:SemiBold',sans-serif] leading-[80px] not-italic relative shrink-0 text-[64px] text-nowrap tracking-[-2.56px] whitespace-pre">
                 <span className="text-[#fa1155]">밋밋</span>
                 <span className="text-[#1c1e22]">
                   과 함께 시작하세요.
@@ -286,7 +287,7 @@ function HeroSection() {
       </div>
 
       <div
-        className="absolute bottom-0 h-[430px] left-0 w-full pointer-events-none"
+        className="gradient-white absolute bottom-0 h-[430px] left-0 w-full pointer-events-none"
         style={{
           background:
             "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
@@ -311,7 +312,7 @@ function FeatureSection() {
     img: string;
     bgImage?: boolean;
   }) => (
-    <div className="bg-[#f1f1f1] overflow-clip relative rounded-[32px] shrink-0 size-[518px]">
+    <div className="feature-mockup bg-[#f1f1f1] overflow-clip relative rounded-[32px] shrink-0 size-[518px]">
       <div className="absolute h-[652.903px] left-1/2 top-[calc(50%+166.45px)] translate-x-[-50%] translate-y-[-50%] w-[320px]">
         {bgImage && (
           <div className="absolute h-[80px] left-[71px] top-[167px] w-[375px]" />
@@ -350,7 +351,7 @@ function FeatureSection() {
     isReversed?: boolean;
   }) => (
     <div
-      className="relative w-full max-w-[580px]"
+      className="feature-text-box relative w-full max-w-[580px]"
     >
       <div className="flex flex-col justify-center size-full">
         <div
@@ -369,7 +370,7 @@ function FeatureSection() {
                 />
               </div>
             </div>
-            <div className="font-['Pretendard:Bold',sans-serif] leading-[58px] min-w-full not-italic relative shrink-0 text-[#1c1e22] text-[44px] w-[min-content]">
+            <div className="feature-title font-['Pretendard:Bold',sans-serif] leading-[58px] min-w-full not-italic relative shrink-0 text-[#1c1e22] text-[44px] w-[min-content]">
               <p className="mb-0">{title1}</p>
               <p>{title2}</p>
             </div>
@@ -382,7 +383,7 @@ function FeatureSection() {
           <motion.div 
             whileTap={{ scale: 0.95 }}
             onClick={scrollToCTA}
-            className="bg-[#1c1e22] flex gap-[16px] items-center justify-center pl-[18px] pr-[14px] py-[12px] relative rounded-[32px] shrink-0 cursor-pointer"
+            className="feature-btn bg-[#1c1e22] flex gap-[16px] items-center justify-center pl-[18px] pr-[14px] py-[12px] relative rounded-[32px] shrink-0 cursor-pointer"
           >
             <p className="font-['Pretendard:SemiBold',sans-serif] leading-[20px] text-[#fbf9f9] text-[14px] whitespace-nowrap">
               지금 참여하기
@@ -398,11 +399,11 @@ function FeatureSection() {
     <div className="bg-white relative shrink-0 w-full">
       <div className="content-stretch flex flex-col items-start py-[20px] relative w-full">
         <div className="bg-neutral-100 relative rounded-[40px] shrink-0 w-full max-w-[1280px] mx-auto">
-          <div className="content-stretch flex flex-col items-center justify-center relative w-full gap-[24px] px-[40px] py-[60px]">
+          <div className="feature-wrap content-stretch flex flex-col items-center justify-center relative w-full gap-[24px] px-[40px] py-[60px]">
             {/* Feature 1 */}
             <FadeInSection>
               <div className="bg-white relative rounded-[32px] shrink-0 w-full max-w-[1280px]">
-                <div className="content-stretch flex gap-[40px] justify-between items-center p-[20px] relative w-full flex-nowrap">
+                <div className="feature-card content-stretch flex gap-[40px] justify-between items-center p-[20px] relative w-full flex-nowrap">
                   <FeatureMockup img={imgMyCard} />
                   <FeatureContent
                     iconImg={imgRectangle6115}
@@ -429,7 +430,7 @@ function FeatureSection() {
             {/* Feature 2 */}
             <FadeInSection>
               <div className="bg-white relative rounded-[32px] shrink-0 w-full max-w-[1280px]">
-                <div className="content-stretch flex gap-[40px] justify-between items-center pl-[60px] pr-[20px] py-[20px] relative w-full flex-nowrap">
+                <div className="feature-card reverse content-stretch flex gap-[40px] justify-between items-center pl-[60px] pr-[20px] py-[20px] relative w-full flex-nowrap">
                   <FeatureContent
                     iconImg={imgRectangle6114}
                     title1="자유로운 포인트"
@@ -457,7 +458,7 @@ function FeatureSection() {
             {/* Feature 3 */}
             <FadeInSection>
               <div className="bg-white relative rounded-[32px] shrink-0 w-full max-w-[1280px]">
-                <div className="content-stretch flex gap-[40px] justify-between items-center p-[20px] relative w-full flex-nowrap">
+                <div className="feature-card content-stretch flex gap-[40px] justify-between items-center p-[20px] relative w-full flex-nowrap">
                   <FeatureMockup img={imgMyCard2} bgImage />
                   <FeatureContent
                     iconImg={imgRectangle6112}
@@ -490,13 +491,13 @@ function FeatureSection() {
 function ProfitSection() {
   const CurrencyIcon = ({ symbol }: { symbol: string }) => (
     <div
-      className={`content-stretch flex items-center overflow-clip p-[8px] relative rounded-[2000px] shrink-0`}
+      className={`price-stat-icon content-stretch flex items-center overflow-clip p-[8px] relative rounded-[2000px] shrink-0`}
       style={{
         backgroundImage:
           "linear-gradient(215deg, rgb(250, 17, 85) 0%, rgb(235, 5, 143) 100%)",
       }}
     >
-      <div className={`flex flex-col font-['Pretendard:Bold',sans-serif] justify-center leading-[0] not-italic relative shrink-0 size-[24px] ${symbol === '₩' ? 'text-[25px]' : 'text-[28px]'} text-center text-white`}>
+      <div className={`price-stat-unit flex flex-col font-['Pretendard:Bold',sans-serif] justify-center leading-[0] not-italic relative shrink-0 size-[24px] ${symbol === '₩' ? 'text-[25px]' : 'text-[28px]'} text-center text-white`}>
         <p className="leading-[40px]">{symbol}</p>
       </div>
     </div>
@@ -535,9 +536,9 @@ function ProfitSection() {
             />
           </div>
 
-          <div className="content-stretch flex flex-col items-center justify-center relative w-full gap-[60px] px-[120px] py-[80px]">
+          <div className="price-wrap content-stretch flex flex-col items-center justify-center relative w-full gap-[60px] px-[120px] py-[80px]">
             {/* Header */}
-            <div className="content-stretch flex flex-col gap-[32px] items-start justify-center relative shrink-0 w-full">
+            <div className="price-box content-stretch flex flex-col gap-[32px] items-start justify-center relative shrink-0 w-full">
               <div className="relative shrink-0 size-[72px]">
                 <svg
                   className="block size-full"
@@ -592,15 +593,16 @@ function ProfitSection() {
                   </defs>
                 </svg>
               </div>
-              <p className="font-['Pretendard:Bold',sans-serif] leading-[60px] not-italic relative shrink-0 text-[40px] text-white w-full">
+              <p className="price-text font-['Pretendard:Bold',sans-serif] leading-[60px] not-italic relative shrink-0 text-[40px] text-white w-full">
                 <span className="font-['Pretendard:ExtraLight',sans-serif]">
                   셀럽이 아니어도 괜찮아요.
                 </span>
                 <br />
-                <span>
-                  평범한 일상 속 대화로도 수익을 만들 수
-                  있습니다.
-                </span>
+                <div className="price-text-bold flex gap-[16px]">
+                  <span>평범한 일상 속 대화로도</span>
+                  <span>수익을 만들 수 있습니다.</span>
+                </div>
+
               </p>
             </div>
 
@@ -608,48 +610,50 @@ function ProfitSection() {
             <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
               <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
                 {/* Stat 1 */}
-                <div className="basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
-                  <p className="font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
+                <div className="price-stat basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
+                  <p className="price-stat-tit font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
                     1분 영상통화
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
-                    <p className="font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
+                    <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
                       <CountUp to={500} />
                     </p>
                     <CurrencyIcon symbol="P" />
                   </div>
                 </div>
                 {/* Stat 2 */}
-                <div className="basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
-                  <p className="font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
+                <div className="price-stat basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
+                  <p className="price-stat-tit font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
                     500P 환산 금액
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
-                    <p className="font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
+                    <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
                       <CountUp to={30000} />
                     </p>
                     <CurrencyIcon symbol="₩" />
                   </div>
                 </div>
                 {/* Stat 3 */}
-                <div className="basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
-                  <p className="font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
+                <div className="price-stat basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
+                  <p className="price-stat-tit font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
                     1시간 당 최대
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
-                    <p className="font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
+                    <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
                       <CountUp to={100000} />
                     </p>
                     <CurrencyIcon symbol="₩" />
                   </div>
                 </div>
               </div>
-              <p className="font-['Pretendard:Light',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#c8c8c8] text-[14px] text-right w-full">
+              <p className="price-text-sm font-['Pretendard:Light',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#c8c8c8] text-[14px] text-right w-full">
                 <span>{`영상 통화 비용은 셀럽 직접 설정할 수 있으며, 상황에 따라 시간당 `}</span>
-                <span className="font-['Pretendard:Bold',sans-serif]">
-                  10만 원 이상 수익
-                </span>
-                을 얻는 것도 가능합니다.
+                <div>
+                  <span className="font-['Pretendard:Bold',sans-serif]">
+                    10만 원 이상 수익
+                  </span>
+                  을 얻는 것도 가능합니다.
+                </div>
               </p>
             </div>
           </div>
@@ -901,8 +905,8 @@ function BottomCTA() {
       </div>
 
       <div className="flex flex-col gap-[16px] items-center w-full max-w-[800px]">
-        <p className="font-['Pretendard:Bold',sans-serif] leading-[58px] text-[#1c1e22] text-[44px] text-center w-full">
-          밋밋은 당신의 시간을 가치 있게 만듭니다.
+        <p className="contact-title font-['Pretendard:Bold',sans-serif] leading-[58px] text-[#1c1e22] text-[44px] text-center w-full">
+          <span>밋밋은 당신의 시간을</span> <span>가치 있게 만듭니다.</span>
         </p>
         <div className="flex flex-col gap-[8px] items-center w-full">
           <p className="font-['Pretendard:Regular',sans-serif] leading-[32px] text-[#7d8a9f] text-[20px] text-center w-full">
@@ -1023,9 +1027,9 @@ function Footer() {
   return (
     <div className="bg-white w-full relative shrink-0">
       <div className="w-full max-w-[1280px] mx-auto px-[24px] py-[60px]">
-        <div className="flex flex-row items-end justify-between w-full gap-0">
+        <div className="footer-wrap flex flex-row items-end justify-between w-full gap-0">
           {/* Logo & Description */}
-          <div className="flex flex-col gap-[28px] items-start w-[512px]">
+          <div className="footer-logo flex flex-col gap-[28px] items-start w-[512px]">
             <div className="h-[32px] relative shrink-0 w-[146.862px]">
               <svg
                 className="block size-full"
@@ -1071,7 +1075,7 @@ function Footer() {
               </svg>
             </div>
             <div className="flex flex-col gap-[16px] items-start w-full">
-              <div className="flex flex-wrap gap-[8px] items-center text-[15px] text-nowrap w-full">
+              <div className="footer-menu flex flex-wrap gap-[8px] items-center text-[15px] text-nowrap w-full">
                 <p className="font-['Pretendard:SemiBold',sans-serif] text-[#7d8a9f]">
                   이용약관
                 </p>
@@ -1088,7 +1092,7 @@ function Footer() {
                   운영정책
                 </p>
               </div>
-              <div className="flex flex-wrap gap-[8px] gap-x-4 items-start w-full">
+              <div className="footer-info flex flex-wrap gap-[8px] gap-x-4 items-start w-full">
                 <div className="flex gap-[4px] items-center text-[#7d8a9f] text-[14px]">
                   <p className="font-['Pretendard:Medium',sans-serif]">
                     상호 :
@@ -1141,7 +1145,7 @@ function Footer() {
           </div>
 
           {/* Support Buttons */}
-          <div className="flex flex-col gap-[12px] items-end w-auto">
+          <div className="footer-button flex flex-col gap-[12px] items-end w-auto">
             <div className="flex items-center gap-[12px]">
               {[
                 {
@@ -1222,14 +1226,22 @@ function Footer() {
 
 export default function LandingPage() {
   const [scale, setScale] = React.useState(1);
+  const [isBelowMinWidth, setIsBelowMinWidth] = React.useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
   const [height, setHeight] = React.useState(0);
 
   React.useEffect(() => {
     const handleResize = () => {
-      // 1280px 기준 스케일링, 최대 1배���지만 (확대 금지)
+      const baseWidth = 1280;
+      const minWidth = 768;
       const currentWidth = window.innerWidth;
-      setScale(Math.min(currentWidth / 1280, 1));
+      if (currentWidth <= minWidth) {
+        setIsBelowMinWidth(true);
+        setScale(1);
+        return;
+      }
+      setIsBelowMinWidth(false);
+      setScale(Math.min(currentWidth / baseWidth, 1));
     };
 
     handleResize();
@@ -1248,19 +1260,25 @@ export default function LandingPage() {
     return () => observer.disconnect();
   }, []);
 
+  const appliedScale = isBelowMinWidth ? 1 : scale;
+
   return (
     <div 
       className="w-full overflow-hidden bg-white flex flex-col items-center"
-      style={{ height: height * scale }}
+      style={{ height: height * appliedScale }}
     >
       <div 
         style={{ 
           position: "fixed",
           top: 0, 
-          left: "50%",
-          width: scale === 0 ? "100%" : `${100 / scale}%`,
-          transform: `translateX(-50%) scale(${scale})`,
+          // left: "50%",
+          // width: scale === 0 ? "100%" : `${100 / scale}%`,
+          // transform: `translateX(-50%) scale(${scale})`,
+          width: "100%",
+          // transform: isBelowMinWidth ? "none" : `translateX(-50%) scale(${appliedScale})`,
           transformOrigin: "top center",
+          display: "flex",
+          justifyContent: "space-between",
           zIndex: 50
         }}
       >
@@ -1270,9 +1288,9 @@ export default function LandingPage() {
       <div 
         ref={contentRef}
         style={{ 
-          width: "1280px", 
-          minWidth: "100vw",
-          transform: `scale(${scale})`, 
+          width: isBelowMinWidth ? "100%" : "1280px", 
+          minWidth: isBelowMinWidth ? "100%" : "100vw",
+          transform: isBelowMinWidth ? "none" : `scale(${appliedScale})`, 
           transformOrigin: "top center" 
         }}
         className="relative flex flex-col items-center"
