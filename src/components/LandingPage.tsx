@@ -195,14 +195,14 @@ function HeroSection() {
 
   return (
     <div
-      className="h-[960px] overflow-visible relative shrink-0 w-full"
+      className="md:h-[960px] h-[1024px] overflow-visible relative shrink-0 w-full"
       style={{
         backgroundImage:
           "linear-gradient(0deg, rgb(255, 226, 226) 0%, rgb(255, 255, 255) 100%)",
       }}
     >
       {/* Content Container */}
-      <div className="relative size-full max-w-[1280px] mx-auto px-[16px]">
+      <div className="relative size-full max-w-[1280px] mx-auto md:px-[16px] px-[32px]">
         {/* Background Image */}
         <div className="absolute bottom-[24px] h-[846px] right-[-267px] w-[1269px] pointer-events-none">
           <img

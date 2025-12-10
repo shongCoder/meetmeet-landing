@@ -4,7 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
-    base: "/meetmeet-landing",
+    base: "/meetmeet-landing/",
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
