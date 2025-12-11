@@ -612,23 +612,23 @@ function ProfitSection() {
                 {/* Stat 1 */}
                 <div className="price-stat basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
                   <p className="price-stat-tit font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
-                    1분 영상통화
+                    예시 1회 대화 시간
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
                     <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
-                      <CountUp to={500} />
+                      <CountUp to={15} />
                     </p>
-                    <CurrencyIcon symbol="P" />
+                    <CurrencyIcon symbol="분" />
                   </div>
                 </div>
                 {/* Stat 2 */}
                 <div className="price-stat basis-0 content-stretch flex flex-col gap-[8px] grow items-end justify-center min-h-px min-w-px relative shrink-0">
                   <p className="price-stat-tit font-['Pretendard:Medium',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#7d8a9f] text-[16px] text-center text-nowrap whitespace-pre">
-                    500P 환산 금액
+                    15분 대화 수익(예시)
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
                     <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
-                      <CountUp to={30000} />
+                      <CountUp to={45000} />
                     </p>
                     <CurrencyIcon symbol="₩" />
                   </div>
@@ -640,7 +640,7 @@ function ProfitSection() {
                   </p>
                   <div className="content-stretch flex gap-[8px] items-center justify-center relative shrink-0">
                     <p className="price-stat-am font-['Play:Bold',sans-serif] leading-[56px] not-italic relative text-[40px] text-center text-nowrap text-white whitespace-pre">
-                      <CountUp to={100000} />
+                      <CountUp to={180000} />
                     </p>
                     <CurrencyIcon symbol="₩" />
                   </div>
