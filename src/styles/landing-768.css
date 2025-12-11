@@ -9,6 +9,10 @@
         padding: 16px 32px !important;
     }
 
+    .hero-img-wrap {
+        overflow: hidden;
+    }
+
     .here-img-box {
         width: 1182px;
         height: 788px;
@@ -156,14 +160,14 @@
 
 @media (max-width: 375px) {
     /* 히어로 섹션 */
-    .hero-section {
-        height: 1300px;
-    }
+    /*.hero-section {*/
+    /*    height: 1300px;*/
+    /*}*/
 
-    .hero-title-box {
-        top: 220px;
-        gap: 20px;
-    }
+    /*.hero-title-box {*/
+    /*    top: 220px;*/
+    /*    gap: 20px;*/
+    /*}*/
 
     /*.header-logo {*/
     /*    width: 100px;*/

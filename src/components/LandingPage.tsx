@@ -203,9 +203,9 @@ function HeroSection() {
       }}
     >
       {/* Content Container */}
-      <div className="relative overflow-hidden size-full max-w-[1280px] mx-auto md:px-[16px] px-[32px]">
+      <div className="hero-img-wrap relative size-full max-w-[1280px] mx-auto md:px-[16px] px-[32px]">
         {/* Background Image */}
-        <div className="here-img-box absolute bottom-[24px] h-[846px] right-[-267px] w-[1269px] pointer-events-none">
+        <div className="here-img-box absolute bottom-[24px] h-[846px] right-[-267px] w-full pointer-events-none">
           <img
             alt=""
             className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
@@ -290,7 +290,7 @@ function HeroSection() {
         className="gradient-white absolute bottom-0 h-[430px] left-0 w-full pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
+            "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.85) 60%, #FFFFFF 90%)",
         }}
       />
     </div>
@@ -1233,14 +1233,20 @@ export default function LandingPage() {
 
   React.useEffect(() => {
     const handleResize = () => {
-      const baseWidth = 1280;
       const mobileBaseWidth = 768;
       const currentWidth = window.innerWidth;
       const isCurrentMobile = currentWidth <= mobileBaseWidth;
-      const targetWidth = isCurrentMobile ? mobileBaseWidth : baseWidth;
-      setIsMobile(isCurrentMobile);
-      setDesignWidth(targetWidth);
-      setScale(Math.min(currentWidth / targetWidth, 1));
+
+      if (isCurrentMobile) {
+        setIsMobile(true);
+        setDesignWidth(mobileBaseWidth);
+        setScale(currentWidth / mobileBaseWidth);
+        return;
+      }
+
+      setIsMobile(false);
+      setDesignWidth(currentWidth);
+      setScale(1);
     };
 
     handleResize();
