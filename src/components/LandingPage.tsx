@@ -1233,6 +1233,7 @@ export default function LandingPage() {
 
   React.useEffect(() => {
     const handleResize = () => {
+      const baseWidth = 1280;
       const mobileBaseWidth = 768;
       const currentWidth = window.innerWidth;
       const isCurrentMobile = currentWidth <= mobileBaseWidth;
@@ -1245,8 +1246,13 @@ export default function LandingPage() {
       }
 
       setIsMobile(false);
-      setDesignWidth(currentWidth);
-      setScale(1);
+      if (currentWidth >= baseWidth) {
+        setDesignWidth(currentWidth);
+        setScale(1);
+      } else {
+        setDesignWidth(baseWidth);
+        setScale(currentWidth / baseWidth);
+      }
     };
 
     handleResize();
