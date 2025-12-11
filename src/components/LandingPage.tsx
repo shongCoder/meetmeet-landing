@@ -115,7 +115,7 @@ function NavigationBar() {
     <div className="w-full border-b border-transparent bg-[rgba(255,255,255,0.96)] backdrop-blur-[4px]">
       <div className="header-wrap w-full max-w-[1280px] mx-auto px-[16px] py-[16px] flex items-center justify-between">
         {/* Logo */}
-        <div className="h-[32px] relative shrink-0 w-[146.862px]">
+        <div className="header-logo h-[32px] relative shrink-0 w-[146.862px]">
           <svg
             className="block size-full"
             fill="none"
@@ -164,7 +164,7 @@ function NavigationBar() {
         <motion.div 
           whileTap={{ scale: 0.95 }}
           onClick={scrollToCTA}
-          className="flex content-stretch gap-[16px] items-center justify-center pl-[18px] pr-[14px] py-[10px] relative rounded-[32px] shrink-0 cursor-pointer hover:opacity-90 transition-opacity"
+          className="header-btn flex content-stretch gap-[16px] items-center justify-center pl-[18px] pr-[14px] py-[10px] relative rounded-[32px] shrink-0 cursor-pointer hover:opacity-90 transition-opacity"
         >
           <div
             aria-hidden="true"
@@ -173,7 +173,7 @@ function NavigationBar() {
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-[#FA1155] to-[#EB058F]" />
             <div className="absolute bg-gradient-to-b from-[15.104%] from-[rgba(255,255,255,0.1)] inset-0 mix-blend-soft-light rounded-[32px] to-[rgba(0,0,0,0.01)]" />
           </div>
-          <p className="font-['Pretendard:Bold',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#fbf9f9] text-[16px] text-nowrap whitespace-pre">
+          <p className="header-btn-text font-['Pretendard:Bold',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#fbf9f9] text-[16px] text-nowrap whitespace-pre">
             지금 참여하기
           </p>
           <div className="scale-100 flex items-center justify-center">
@@ -1226,22 +1226,21 @@ function Footer() {
 
 export default function LandingPage() {
   const [scale, setScale] = React.useState(1);
-  const [isBelowMinWidth, setIsBelowMinWidth] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [designWidth, setDesignWidth] = React.useState(1280);
   const contentRef = React.useRef<HTMLDivElement>(null);
   const [height, setHeight] = React.useState(0);
 
   React.useEffect(() => {
     const handleResize = () => {
       const baseWidth = 1280;
-      const minWidth = 768;
+      const mobileBaseWidth = 768;
       const currentWidth = window.innerWidth;
-      if (currentWidth <= minWidth) {
-        setIsBelowMinWidth(true);
-        setScale(1);
-        return;
-      }
-      setIsBelowMinWidth(false);
-      setScale(Math.min(currentWidth / baseWidth, 1));
+      const isCurrentMobile = currentWidth <= mobileBaseWidth;
+      const targetWidth = isCurrentMobile ? mobileBaseWidth : baseWidth;
+      setIsMobile(isCurrentMobile);
+      setDesignWidth(targetWidth);
+      setScale(Math.min(currentWidth / targetWidth, 1));
     };
 
     handleResize();
@@ -1260,22 +1259,19 @@ export default function LandingPage() {
     return () => observer.disconnect();
   }, []);
 
-  const appliedScale = isBelowMinWidth ? 1 : scale;
-
   return (
     <div 
       className="w-full overflow-hidden bg-white flex flex-col items-center"
-      style={{ height: height * appliedScale }}
+      style={{ height: height * scale }}
     >
       <div 
         style={{ 
           position: "fixed",
           top: 0, 
-          // left: "50%",
-          // width: scale === 0 ? "100%" : `${100 / scale}%`,
-          // transform: `translateX(-50%) scale(${scale})`,
-          width: "100%",
-          // transform: isBelowMinWidth ? "none" : `translateX(-50%) scale(${appliedScale})`,
+          left: "50%",
+          width: `${designWidth}px`,
+          minWidth: `${designWidth}px`,
+          transform: `translateX(-50%) scale(${scale})`,
           transformOrigin: "top center",
           display: "flex",
           justifyContent: "space-between",
@@ -1288,9 +1284,9 @@ export default function LandingPage() {
       <div 
         ref={contentRef}
         style={{ 
-          width: isBelowMinWidth ? "100%" : "1280px", 
-          minWidth: isBelowMinWidth ? "100%" : "100vw",
-          transform: isBelowMinWidth ? "none" : `scale(${appliedScale})`, 
+          width: `${designWidth}px`, 
+          minWidth: `${designWidth}px`,
+          transform: `scale(${scale})`, 
           transformOrigin: "top center" 
         }}
         className="relative flex flex-col items-center"

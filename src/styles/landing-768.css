@@ -153,3 +153,33 @@
         margin-top: 24px;
     }
 }
+
+@media (max-width: 375px) {
+    /* 히어로 섹션 */
+    .hero-section {
+        height: 1300px;
+    }
+
+    .hero-title-box {
+        top: 220px;
+        gap: 20px;
+    }
+
+    /*.header-logo {*/
+    /*    width: 100px;*/
+    /*    height: auto;*/
+    /*}*/
+
+    /*.header-btn-text {*/
+    /*    font-size: 10px;*/
+    /*}*/
+
+    /*.header-btn {*/
+    /*    padding: 6px 10px 6px 12px*/
+    /*}*/
+
+    /*.header-btn-arrow {*/
+    /*    width: 14px;*/
+    /*    height: 14px;*/
+    /*}*/
+}
